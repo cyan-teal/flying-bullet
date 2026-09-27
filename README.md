@@ -7,4 +7,4 @@ Here's a screenshot of it in Godot:
 Another:
 <img width="1007" height="576" alt="Screenshot 2026-06-21 143055" src="https://github.com/user-attachments/assets/0731c81d-f1be-4ed0-b962-789d67d0db75" />
 
-Credit to leberch on Pixabay for the free background music. <a>https://pixabay.com/users/leberch-42823964/</a>
+Credit to leberch on Pixabay for the free Sci-fi background music. <a>https://pixabay.com/users/leberch-42823964/</a>
