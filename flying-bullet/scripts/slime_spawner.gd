@@ -5,9 +5,12 @@ const ROCKET_SLIME = preload("res://scenes/rocket_slime.tscn")
 const MAX_SLIMES = 6
 const DISTANCE_TO_SPAWN_FROM_BULLET = 4000.0
 
+var random_number_generator: RandomNumberGenerator
 var bullet
 
 func _ready() -> void:
+	random_number_generator = RandomNumberGenerator.new()
+	random_number_generator.seed = Time.get_ticks_usec()
 	bullet = get_node("../Bullet")
 
 
@@ -16,6 +19,6 @@ func _on_spawn_cooldown_timeout() -> void:
 		return
 		
 	var new_slime = LASER_SLIME.instantiate() if randf() > 0.5 else ROCKET_SLIME.instantiate()
-	var offset_vector = Vector2.from_angle(randf() * PI) * DISTANCE_TO_SPAWN_FROM_BULLET
+	var offset_vector = Vector2.from_angle(random_number_generator.randf() * PI) * DISTANCE_TO_SPAWN_FROM_BULLET
 	new_slime.position = bullet.position + offset_vector
 	add_child(new_slime)
