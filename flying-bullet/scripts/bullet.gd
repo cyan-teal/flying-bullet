@@ -37,7 +37,6 @@ enum Direction {
 # Sets up the player character for the game to start
 func _ready() -> void:
 	collision_count = 0
-	collision_limit_timer = %ResetCollisionLimit
 	position = Vector2.ZERO
 	rotation = 0.0
 	turn_direction = Direction.NEUTRAL
