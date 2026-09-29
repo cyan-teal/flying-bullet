@@ -18,8 +18,12 @@ func _ready() -> void:
 	%BackgroundMusic.play()
 	bullet = %Bullet
 	seeds.resize(HOUSES_PER_CHUNK * 9 * 3)
+	
+	var randomNumberGenerator: RandomNumberGenerator = RandomNumberGenerator.new()
+	randomNumberGenerator.seed = Time.get_ticks_usec()
+	
 	for i in seeds.size():
-		seeds[i] = randf()
+		seeds[i] = randomNumberGenerator.randf()
 	loaded_chunks.resize(9)
 	house_bank.resize(9 * HOUSES_PER_CHUNK)
 	for i in house_bank.size():
