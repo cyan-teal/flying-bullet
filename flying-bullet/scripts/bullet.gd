@@ -131,5 +131,7 @@ func bounce(collision: KinematicCollision2D) -> void:
 			bounce(stuck_collision)
 			stuck = false
 	
+	reset_physics_interpolation()
+	
 	score += SCORE_GAIN_ON_BOUNCE
 	emit_signal("current_score", score)
