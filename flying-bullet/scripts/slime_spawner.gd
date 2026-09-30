@@ -2,7 +2,7 @@ extends Node
 
 const LASER_SLIME = preload("res://scenes/laser_slime.tscn")
 const ROCKET_SLIME = preload("res://scenes/rocket_slime.tscn")
-const MAX_SLIMES = 6
+const MAX_SLIMES = 6_000
 const DISTANCE_TO_SPAWN_FROM_BULLET = 4000.0
 
 var random_number_generator: RandomNumberGenerator
