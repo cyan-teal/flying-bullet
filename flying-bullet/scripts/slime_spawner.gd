@@ -14,7 +14,7 @@ func _ready() -> void:
 	bullet = get_node("../Bullet")
 
 
-func _on_spawn_cooldown_timeout() -> void:
+func _physics_process(_delta: float) -> void:
 	if get_child_count() - 1 >= MAX_SLIMES:
 		return
 		
