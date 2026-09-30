@@ -1,5 +1,5 @@
 # Flying Bullet
-Flying bullet is a 2D game made in the Godot engine
+Flying bullet is a 2D arcade game made in the Godot engine
 
 Play here: <a>https://cyan-teal.github.io/flying-bullet-web-export/</a>
 
