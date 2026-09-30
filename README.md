@@ -1,7 +1,7 @@
 # Flying Bullet
 Flying bullet is a 2D game made in the Godot engine
 
-Play here: <a>https://cyan-teal.github.io/flying-bullet/</a>
+Play here: <a>https://cyan-teal.github.io/flying-bullet-web-export/</a>
 
 Controls with left-arrow and right-arrow or 'A' and 'D'.
 
