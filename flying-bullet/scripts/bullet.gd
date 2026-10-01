@@ -44,12 +44,12 @@ func _ready() -> void:
 	score = 0
 
 # Uses user input to record the direction the player is going, in turn_direction, for later use
-func _unhandled_key_input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("turn_right"):
-		turn_direction = Direction.RIGHT
-	elif Input.is_action_pressed("turn_left"):
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("turn_left"):
 		turn_direction = Direction.LEFT
-	else:
+	elif event.is_action_pressed("turn_right"):
+		turn_direction = Direction.RIGHT
+	elif event.is_action_released("turn_left") or event.is_action_released("turn_right"):
 		turn_direction = Direction.NEUTRAL
 	get_viewport().set_input_as_handled()
 
