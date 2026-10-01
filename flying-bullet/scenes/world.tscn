@@ -43,7 +43,7 @@ autostart = true
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=880247344]
 unique_name_in_owner = true
 stream = ExtResource("8_4mrxx")
-volume_db = -17.434
+volume_db = -5.0
 
 [connection signal="current_health" from="Bullet" to="HUD" method="_on_bullet_current_health"]
 [connection signal="current_score" from="Bullet" to="HUD" method="_on_bullet_current_score"]
