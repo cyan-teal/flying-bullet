@@ -12,5 +12,3 @@ action = "turn_left"
 [node name="RightTouchScreenButton" type="TouchScreenButton" parent="." unique_id=566848466]
 passby_press = true
 action = "turn_right"
-
-[connection signal="pressed" from="LeftTouchScreenButton" to="." method="_on_left_touch_screen_button_pressed"]
