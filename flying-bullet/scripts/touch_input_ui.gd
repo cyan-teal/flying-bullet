@@ -22,7 +22,3 @@ func _scale_buttons() -> void:
 	right_button.shape = half_screen_rect
 	right_button.position.x = half_screen_rect.size.x * 1.5
 	right_button.position.y = half_screen_rect.size.y / 2
-
-
-func _on_left_touch_screen_button_pressed() -> void:
-	print("1")
