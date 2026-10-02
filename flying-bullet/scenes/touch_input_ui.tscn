@@ -6,9 +6,7 @@
 script = ExtResource("1_spxfk")
 
 [node name="LeftTouchScreenButton" type="TouchScreenButton" parent="." unique_id=226949050]
-passby_press = true
 action = "turn_left"
 
 [node name="RightTouchScreenButton" type="TouchScreenButton" parent="." unique_id=566848466]
-passby_press = true
 action = "turn_right"
