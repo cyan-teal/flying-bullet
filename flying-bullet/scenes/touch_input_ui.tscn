@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dsbcjaxwxnacj"]
+
+[ext_resource type="Script" uid="uid://bd4qynnaespm3" path="res://scripts/touch_input_ui.gd" id="1_spxfk"]
+
+[node name="TouchInputUI" type="CanvasLayer" unique_id=689697997]
+script = ExtResource("1_spxfk")
+
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="." unique_id=226949050]
+passby_press = true
+action = "turn_left"
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="." unique_id=566848466]
+passby_press = true
+action = "turn_right"
+
+[connection signal="pressed" from="LeftTouchScreenButton" to="." method="_on_left_touch_screen_button_pressed"]
