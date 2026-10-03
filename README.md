@@ -23,7 +23,7 @@ There is an infinite procedurally generated world.
 Death screen:
 <img width="1882" height="1058" alt="image" src="https://github.com/user-attachments/assets/695922ea-7ab7-4163-a34c-8ed0445ce820" />
 
-A random screenshot (of the <i>lots-of-enemies</i> branch):
+A random screenshot of the game with some changes.
 <img width="1882" height="1058" alt="image" src="https://github.com/user-attachments/assets/c22d1942-3b69-44a5-91b8-1a32b0b8c8f5" />
 
 <b>Credit to leberch on Pixabay for the free Sci-fi background music. <a>https://pixabay.com/users/leberch-42823964/</a></b>

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c1e72liv16sra" path="res://assets/sprites/orange_spark.png" id="1_4gqjm"]
 [ext_resource type="Script" uid="uid://bb6q23kpos5de" path="res://scripts/death_explosion.gd" id="2_njiuk"]
-[ext_resource type="AudioStream" uid="uid://eulsll5binxi" path="res://assets/sounds/explosion.mp3" id="3_g20er"]
+[ext_resource type="AudioStream" uid="uid://681m0jw036tf" path="res://assets/sounds/freesound_community-medium-explosion-40472.mp3" id="3_g20er"]
 
 [sub_resource type="Gradient" id="Gradient_njiuk"]
 offsets = PackedFloat32Array(0, 0.28804347, 1)
@@ -30,7 +30,6 @@ script = ExtResource("2_njiuk")
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="." unique_id=245592567]
 unique_name_in_owner = true
 stream = ExtResource("3_g20er")
-volume_db = 24.0
-autoplay = true
+volume_db = 1.0
 
 [connection signal="finished" from="ExplosionSound" to="." method="_on_explosion_sound_finished"]
