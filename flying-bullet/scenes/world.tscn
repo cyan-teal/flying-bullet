@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c86gahi6h8828" path="res://scripts/camera_target_alterer.gd" id="3_qfnet"]
 [ext_resource type="Script" uid="uid://b67uky55hdjfr" path="res://scripts/slime_spawner.gd" id="7_i7141"]
 [ext_resource type="AudioStream" uid="uid://drm01m7stuyar" path="res://assets/sounds/leberch-sci-fi-action-248039.mp3" id="8_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://dsbcjaxwxnacj" path="res://scenes/touch_input_ui.tscn" id="9_7r4gi"]
 
 [node name="World" type="Node2D" unique_id=1755103904]
 script = ExtResource("1_4mrxx")
@@ -44,6 +45,8 @@ autostart = true
 unique_name_in_owner = true
 stream = ExtResource("8_4mrxx")
 volume_db = -5.0
+
+[node name="TouchInputUI" parent="." unique_id=689697997 instance=ExtResource("9_7r4gi")]
 
 [connection signal="current_health" from="Bullet" to="HUD" method="_on_bullet_current_health"]
 [connection signal="current_score" from="Bullet" to="HUD" method="_on_bullet_current_score"]

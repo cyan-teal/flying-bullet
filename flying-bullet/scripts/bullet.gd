@@ -44,14 +44,16 @@ func _ready() -> void:
 	score = 0
 
 # Uses user input to record the direction the player is going, in turn_direction, for later use
-func _unhandled_key_input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("turn_right"):
-		turn_direction = Direction.RIGHT
-	elif Input.is_action_pressed("turn_left"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("turn_left"):
 		turn_direction = Direction.LEFT
-	else:
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("turn_right"):
+		turn_direction = Direction.RIGHT
+		get_viewport().set_input_as_handled()
+	elif event.is_action_released("turn_left") or event.is_action_released("turn_right"):
 		turn_direction = Direction.NEUTRAL
-	get_viewport().set_input_as_handled()
+		get_viewport().set_input_as_handled()
 
 # handles movement/physics, including using turn_direction, applying drag, and calling bouce() on collisions
 # is 'special_physics_process' and not '_physics_process', because I wanted more control over when in a frame this was called
