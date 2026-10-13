@@ -25,6 +25,8 @@ var score
 var turn_direction
 var linear_velocity
 var rotational_velocity
+var trying_to_go_left
+var trying_to_go_right
 
 # Represents a direction; neutral means no direction
 enum Direction {
@@ -42,18 +44,33 @@ func _ready() -> void:
 	rotational_velocity = 0.0
 	health = INITIAL_HEALTH
 	score = 0
+	trying_to_go_left = false
+	trying_to_go_right = false
 
 # Uses user input to record the direction the player is going, in turn_direction, for later use
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("turn_left"):
-		turn_direction = Direction.LEFT
-		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("turn_right"):
-		turn_direction = Direction.RIGHT
-		get_viewport().set_input_as_handled()
-	elif event.is_action_released("turn_left") or event.is_action_released("turn_right"):
-		turn_direction = Direction.NEUTRAL
-		get_viewport().set_input_as_handled()
+	if event.is_pressed():
+		if event.is_action("turn_left"):
+			trying_to_go_left = true
+		else:
+			trying_to_go_right = true
+	else:
+		if event.is_action("turn_left"):
+			trying_to_go_left = false
+		else:
+			trying_to_go_right = false
+	
+	self.turn_direction = direction_from_trying(trying_to_go_left, trying_to_go_right)
+
+
+func direction_from_trying(trying_to_go_left: bool, trying_to_go_right: bool) -> Direction:
+	if trying_to_go_left and not trying_to_go_right:
+		return Direction.LEFT
+	elif not trying_to_go_left and trying_to_go_right:
+		return Direction.RIGHT
+	
+	return Direction.NEUTRAL
+
 
 # handles movement/physics, including using turn_direction, applying drag, and calling bouce() on collisions
 # is 'special_physics_process' and not '_physics_process', because I wanted more control over when in a frame this was called
