@@ -52,15 +52,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed():
 		if event.is_action("turn_left"):
 			trying_to_go_left = true
+			turn_direction = Direction.LEFT
 		else:
 			trying_to_go_right = true
+			turn_direction = Direction.RIGHT
 	else:
 		if event.is_action("turn_left"):
 			trying_to_go_left = false
 		else:
 			trying_to_go_right = false
+		self.turn_direction = direction_from_trying(trying_to_go_left, trying_to_go_right)
 	
-	self.turn_direction = direction_from_trying(trying_to_go_left, trying_to_go_right)
 
 
 func direction_from_trying(trying_to_go_left: bool, trying_to_go_right: bool) -> Direction:
