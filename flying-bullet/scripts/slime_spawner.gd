@@ -24,3 +24,7 @@ func _on_spawn_cooldown_timeout() -> void:
 	var offset_vector = Vector2.from_angle(random_number_generator.randf() * PI) * DISTANCE_TO_SPAWN_FROM_BULLET
 	new_slime.position = bullet.position + offset_vector
 	add_child(new_slime)
+
+
+func set_seconds_between_enemy_spawns(seconds: float) -> void:
+	spawnCooldown.wait_time = seconds
