@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://befl8nannv0fr"]
+
+[ext_resource type="Script" uid="uid://b67uky55hdjfr" path="res://scripts/slime_spawner.gd" id="1_548ng"]
+
+[node name="SlimeSpawner" type="Node" unique_id=95053273]
+script = ExtResource("1_548ng")
+
+[node name="SpawnCooldown" type="Timer" parent="." unique_id=1553253058]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="SpawnCooldown" to="." method="_on_spawn_cooldown_timeout"]
