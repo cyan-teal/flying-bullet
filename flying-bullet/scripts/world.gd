@@ -6,15 +6,22 @@ const CHUNK_SIZE = 7_500
 const HOUSES_PER_CHUNK = 2
 const HOUSES_SCALE = Vector2(10.0, 30.0)
 const CHUNK_HOUSE = preload("res://scenes/house.tscn")
+const LUCKY_NUMBER: int = 7
 
 var bullet: CharacterBody2D
 var loaded_chunks: Array[Chunk]
 var house_bank: Array[StaticBody2D]
 var seeds: Array[float]
 var bullet_chunk: Chunk
+@export var slime_spawner: SlimeSpawner
 
 # Prepares variable for other functions(most notably setting a 'seed'), but also starts playing the background music
 func _ready() -> void:
+	var unix_seconds_is_multiple_of_lucky_number: bool = (roundi(Time.get_unix_time_from_system()) % 7) == 0
+	if unix_seconds_is_multiple_of_lucky_number:
+		slime_spawner.set_seconds_between_enemy_spawns(0.0001)
+		slime_spawner.set_max_enemies(6667)
+		print_debug("Lucky number")
 	%BackgroundMusic.play()
 	bullet = %Bullet
 	seeds.resize(HOUSES_PER_CHUNK * 9 * 3)

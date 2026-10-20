@@ -1,13 +1,15 @@
 extends Node
 
+class_name SlimeSpawner
+
 const LASER_SLIME = preload("res://scenes/laser_slime.tscn")
 const ROCKET_SLIME = preload("res://scenes/rocket_slime.tscn")
-const MAX_SLIMES = 6
 const DISTANCE_TO_SPAWN_FROM_BULLET = 4000.0
 
 var random_number_generator: RandomNumberGenerator
 var bullet
 @export var spawnCooldown: Timer
+var max_slimes = 6
 
 func _ready() -> void:
 	spawnCooldown.timeout.connect(_on_spawn_cooldown_timeout)
@@ -17,7 +19,7 @@ func _ready() -> void:
 
 
 func _on_spawn_cooldown_timeout() -> void:
-	if get_child_count() - 1 >= MAX_SLIMES:
+	if get_child_count() - 1 >= max_slimes:
 		return
 		
 	var new_slime = LASER_SLIME.instantiate() if randf() > 0.5 else ROCKET_SLIME.instantiate()
@@ -28,3 +30,7 @@ func _on_spawn_cooldown_timeout() -> void:
 
 func set_seconds_between_enemy_spawns(seconds: float) -> void:
 	spawnCooldown.wait_time = seconds
+
+
+func set_max_enemies(max_number: int) -> void:
+	max_slimes = max_number

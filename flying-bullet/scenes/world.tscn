@@ -10,8 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://drm01m7stuyar" path="res://assets/sounds/leberch-sci-fi-action-248039.mp3" id="8_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://dsbcjaxwxnacj" path="res://scenes/touch_input_ui.tscn" id="9_7r4gi"]
 
-[node name="World" type="Node2D" unique_id=1755103904]
+[node name="World" type="Node2D" unique_id=1755103904 node_paths=PackedStringArray("slime_spawner")]
 script = ExtResource("1_4mrxx")
+slime_spawner = NodePath("SlimeSpawner")
 
 [node name="Backdrop" parent="." unique_id=376863588 instance=ExtResource("2_i7141")]
 layer = -1
