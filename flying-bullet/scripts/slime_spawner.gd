@@ -7,8 +7,10 @@ const DISTANCE_TO_SPAWN_FROM_BULLET = 4000.0
 
 var random_number_generator: RandomNumberGenerator
 var bullet
+@export var spawnCooldown: Timer
 
 func _ready() -> void:
+	spawnCooldown.timeout.connect(_on_spawn_cooldown_timeout)
 	random_number_generator = RandomNumberGenerator.new()
 	random_number_generator.seed = Time.get_ticks_usec()
 	bullet = get_node("../Bullet")
