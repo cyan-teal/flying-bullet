@@ -8,7 +8,6 @@ var health_label
 var score_label
 var show_health_timer
 var show_score_timer
-var tutorial_screen
 var death_screen
 var end_screen_duration
 
@@ -17,7 +16,6 @@ func _ready() -> void:
 	score_label = %Score
 	show_health_timer = %ShowHearts
 	show_score_timer = %ShowScore
-	tutorial_screen = %TutorialScreen
 	death_screen = %DeathScreen
 	end_screen_duration = %EndScreenDuration
 	recorded_health = 0
