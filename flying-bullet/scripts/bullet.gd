@@ -44,34 +44,21 @@ func _ready() -> void:
 	rotational_velocity = 0.0
 	health = INITIAL_HEALTH
 	score = 0
-	trying_to_go_left = false
-	trying_to_go_right = false
 
 # Uses user input to record the direction the player is going, in turn_direction, for later use
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_pressed():
-		if event.is_action("turn_left"):
-			trying_to_go_left = true
-			turn_direction = Direction.LEFT
-		else:
-			trying_to_go_right = true
-			turn_direction = Direction.RIGHT
+	var going_left := event.is_action("turn_left")
+	var going_right := event.is_action("turn_right")
+	if going_left == going_right or event.is_released():
+		turn_direction = Direction.NEUTRAL
 	else:
-		if event.is_action("turn_left"):
-			trying_to_go_left = false
-		else:
-			trying_to_go_right = false
-		self.turn_direction = direction_from_trying(trying_to_go_left, trying_to_go_right)
+		if going_left:
+			turn_direction = Direction.LEFT
+		else: # going right
+			turn_direction = Direction.RIGHT
+	print(turn_direction)
 	
 
-
-func direction_from_trying(trying_to_go_left: bool, trying_to_go_right: bool) -> Direction:
-	if trying_to_go_left and not trying_to_go_right:
-		return Direction.LEFT
-	elif not trying_to_go_left and trying_to_go_right:
-		return Direction.RIGHT
-	
-	return Direction.NEUTRAL
 
 
 # handles movement/physics, including using turn_direction, applying drag, and calling bouce() on collisions
